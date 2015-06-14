@@ -3,3 +3,4 @@
 *~
 sprite_main
 smd.csv
+make.sh #Wapper for make that passes the correct LUA* settings.
