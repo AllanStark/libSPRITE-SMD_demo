@@ -13,7 +13,7 @@ to `make`.
 You can also change the number of Lua library to link to by setting the
 `LUA_LIB` variable. ex.:
 
-    `make LUA_INCLUDE=/usr/include/lua5.2`
+    `make LUA_INCLUDE=/usr/include/lua5.2 LUA_LIB=5.2`
 
 ## Run
 As root (or sudo), execute './sprite_main smd.lua' where sprite_main is the

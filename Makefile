@@ -19,7 +19,7 @@ CFLAGS=-I./ -I$(SPRITEINCDIR) -I$(LUA_INCLUDE) -DXPRINT_LOCATION #-DPRINT_DEBUG
 include $(SP)rules.mk
 
 LDFLAGS+=-L$(SPRITELIBDIR) -lSPRITE_SCALE -lSPRITE_SRTX -lSPRITE_math \
-         -lSPRITE_units -lpthread -l$(LIB_LUA) -lrt -ldl
+         -lSPRITE_units -lpthread -l$(LUA_LIB) -lrt -ldl
 
 $(TGT): $(TGT).o $(OBJS)
 	$(CPP) -o $@ $^ $(LDFLAGS)
