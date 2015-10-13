@@ -33,6 +33,13 @@ logger = Logger.new("Logger", LOGFILE)
 s.set_task_properties(logger, tp, s.HZ_to_period(1), priority)
 priority = priority - 1
 
+tp:set_schedule_presence(0x0004)
+
+-- Create an aperiodic task as an example.
+ap = Ap.new("SMD", k, B, mass)
+s.set_task_properties(ap, tp, 0, priority)
+priority = priority - 1
+
 --------------------------------------------------------------------------------
 -- Start up the tasks.
 --------------------------------------------------------------------------------
@@ -42,6 +49,7 @@ print "Starting tasks..."
 scheduler:start()
 logger:start()
 smd:start()
+ap:start()
 
 --- Use debug to pause the script and let the tasks run.
 print "Use control-D to cleanly terminate execution."
@@ -54,6 +62,7 @@ debug:debug()
 print "...Exiting"
 
 -- Halt the task
+ap:stop()
 smd:stop()
 logger:stop()
 scheduler:stop()

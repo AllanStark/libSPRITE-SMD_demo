@@ -1,6 +1,7 @@
 #include "SCALE/Scale_if.h"
 #include "tasks/Logger_lua.h"
 #include "tasks/SMD_lua.h"
+#include "tasks/Ap_lua.h"
 #include "base/XPRINTF.h"
 
 
@@ -12,6 +13,7 @@ int main(int arc, char* argv[])
      */
     task::Logger_lua::register_class(scale.state());
     task::SMD_lua::register_class(scale.state());
+    task::Ap_lua::register_class(scale.state());
 
     /* Execute the main script that drives the simulation.
      */

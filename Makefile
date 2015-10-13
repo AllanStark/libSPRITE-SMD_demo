@@ -6,7 +6,8 @@ LUA_INCLUDE:=/usr/local/include
 LUA_LIB:=lua
 
 SRC:=tasks/Logger.cpp \
-     tasks/SMD.cpp
+     tasks/SMD.cpp \
+     tasks/Ap.cpp
 
 TEST_SRC:=
 
@@ -26,8 +27,6 @@ $(TGT): $(TGT).o $(OBJS)
 
 EXTRA_CLEAN+=$(TGT).o $(TGT).d
 
-#tasks/SMD.o: CPPFLAGS+=-DPRINT_DEBUG
-
 release:
 	@echo "Enter version number: "; \
 	read VERSION; \
@@ -35,3 +34,6 @@ release:
 	git push origin release-$$VERSION; \
 	RELEASENAME=libSPRITE-SMD_demo-$$VERSION; \
 	git archive --prefix=$$RELEASENAME/ master | bzip2 > ../$$RELEASENAME.tar.bz2
+
+tasks/Ap.o: CPPFLAGS+=-DPRINT_DEBUG
+#tasks/SMD.o: CPPFLAGS+=-DPRINT_DEBUG
